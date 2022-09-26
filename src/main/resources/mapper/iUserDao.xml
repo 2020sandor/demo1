@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--映射文件配置 -->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace命名空间，作用：对sql进行分类化管理 -->
+<mapper namespace="com.jnu.dao.IUserDao">
+    
+    <insert id="insertUser" parameterType="com.jnu.domain.User">
+        INSERT INTO tab_user(userName, password)
+        VALUES(#{userName}, #{password})
+    </insert>
+
+    <select id="queryUserByName" parameterType="java.lang.String" resultType="com.jnu.domain.User">
+        SELECT *
+        FROM tbl_users
+        WHERE userName = #{userName}
+    </select>
+</mapper>
